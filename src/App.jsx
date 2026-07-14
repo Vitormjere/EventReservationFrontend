@@ -33,6 +33,14 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+        path="/events/:id/edit"
+          element={
+            <ProtectedRoute allowedRoles={['Organizer', 'Admin']}>
+              <EventForm />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );
