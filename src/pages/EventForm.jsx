@@ -65,13 +65,13 @@ function EventForm() {
     }
   }
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading) return <p className="page">Carregando...</p>;
 
   return (
-    <div>
+    <div className="page">
       <h1>{isEditMode ? 'Editar Evento' : 'Criar Evento'}</h1>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="message-error">{error}</p>}
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -129,7 +129,7 @@ function EventForm() {
           />
         </div>
 
-        <button type="submit" disabled={saving}>
+        <button type="submit" className="btn-primary" disabled={saving}>
           {saving ? 'Salvando...' : 'Salvar'}
         </button>
       </form>

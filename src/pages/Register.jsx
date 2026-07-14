@@ -29,12 +29,12 @@ function Register() {
   }
 
   return (
-    <div>
+    <div className="page">
       <h1>Registro</h1>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="message-error">{error}</p>}
       {success && (
-        <p style={{ color: 'green' }}>
+        <p className="message-success">
           Conta criada com sucesso! Redirecionando para o login...
         </p>
       )}
@@ -74,7 +74,7 @@ function Register() {
           />
         </div>
 
-        <button type="submit" disabled={loading || success}>
+        <button type="submit" className="btn-primary" disabled={loading || success}>
           {loading ? 'Registrando...' : 'Registrar'}
         </button>
       </form>

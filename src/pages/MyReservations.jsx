@@ -35,26 +35,26 @@ function MyReservations() {
     }
   }
 
-  if (loading) return <p>Carregando...</p>;
-  if (error) return <p style={{ color: 'red' }}>{error}</p>;
+  if (loading) return <p className="page">Carregando...</p>;
+  if (error) return <p className="page message-error">{error}</p>;
 
   return (
-    <div>
+    <div className="page">
       <h1>Minhas Reservas</h1>
 
       {reservations.length === 0 && <p>Você ainda não fez nenhuma reserva.</p>}
 
-      <ul>
+      <ul className="event-list">
         {reservations.map((reservation) => (
-          <li key={reservation.id}>
+          <li key={reservation.id} className="event-card">
             <Link to={`/events/${reservation.eventId}`}>
               <h3>{reservation.eventTitle}</h3>
             </Link>
-            <p>{new Date(reservation.eventDate).toLocaleString('pt-BR')}</p>
-            <p>Status: {reservation.status}</p>
+            <p className="event-meta">{new Date(reservation.eventDate).toLocaleString('pt-BR')}</p>
+            <p className="event-meta">Status: {reservation.status}</p>
 
             {reservation.status === 'Confirmed' && (
-              <button onClick={() => handleCancel(reservation.id)}>
+              <button className="btn-danger" onClick={() => handleCancel(reservation.id)}>
                 Cancelar Reserva
               </button>
             )}
@@ -65,4 +65,4 @@ function MyReservations() {
   );
 }
 
-export default MyReservations;
+export default MyReservations;  

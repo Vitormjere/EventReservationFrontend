@@ -11,7 +11,9 @@ function Navbar() {
   }
 
   return (
-    <nav>
+    <nav className="sidebar">
+      <div className="sidebar-brand">EventReservation</div>
+
       <Link to="/">Eventos</Link>
 
       {user ? (
@@ -20,11 +22,15 @@ function Navbar() {
             <Link to="/events/new">Criar Evento</Link>
           )}
           <Link to="/my-reservations">Minhas Reservas</Link>
-          <span>Olá, {user.name}</span>
+
+          <div className="sidebar-spacer"></div>
+
+          <span className="navbar-user">Olá, {user.name}</span>
           <button onClick={handleLogout}>Sair</button>
         </>
       ) : (
         <>
+          <div className="sidebar-spacer"></div>
           <Link to="/login">Login</Link>
           <Link to="/register">Registrar</Link>
         </>

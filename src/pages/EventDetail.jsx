@@ -55,33 +55,35 @@ function EventDetail() {
     }
   }
 
-  if (loading) return <p>Carregando...</p>;
-  if (error) return <p style={{ color: 'red' }}>{error}</p>;
+  if (loading) return <p className="page">Carregando...</p>;
+  if (error) return <p className="page message-error">{error}</p>;
   if (!event) return null;
 
   return (
-    <div>
+    <div className="page">
       <h1>{event.title}</h1>
       <p>{event.description}</p>
-      <p>{new Date(event.eventDate).toLocaleString('pt-BR')}</p>
-      <p>{event.location}</p>
-      <p>Capacidade: {event.capacity}</p>
-      <p>Organizado por: {event.organizerName}</p>
+      <p className="event-meta">{new Date(event.eventDate).toLocaleString('pt-BR')}</p>
+      <p className="event-meta">{event.location}</p>
+      <p className="event-meta">Capacidade: {event.capacity}</p>
+      <p className="event-meta">Organizado por: {event.organizerName}</p>
 
-      {message && <p>{message}</p>}
+      {message && <p className="message-success">{message}</p>}
 
-      {user && (
-        <button onClick={handleReserve} disabled={reserving}>
-          {reserving ? 'Reservando...' : 'Reservar'}
-        </button>
-      )}
+      <div className="button-group">
+        {user && (
+          <button className="btn-primary" onClick={handleReserve} disabled={reserving}>
+            {reserving ? 'Reservando...' : 'Reservar'}
+          </button>
+        )}
 
-      {user && (user.role === 'Admin' || user.name === event.organizerName) && (
-        <div>
-          <button onClick={() => navigate(`/events/${id}/edit`)}>Editar</button>
-          <button onClick={handleDelete}>Excluir</button>
-        </div>
-      )}
+        {user && (user.role === 'Admin' || user.name === event.organizerName) && (
+          <>
+            <button onClick={() => navigate(`/events/${id}/edit`)}>Editar</button>
+            <button className="btn-danger" onClick={handleDelete}>Excluir</button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

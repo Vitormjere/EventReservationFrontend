@@ -22,24 +22,24 @@ function EventList() {
     fetchEvents();
   }, []);
 
-  if (loading) return <p>Carregando eventos...</p>;
-  if (error) return <p style={{ color: 'red' }}>{error}</p>;
+  if (loading) return <p className="page">Carregando eventos...</p>;
+  if (error) return <p className="page message-error">{error}</p>;
 
   return (
-    <div>
+    <div className="page">
       <h1>Lista de Eventos</h1>
 
       {events.length === 0 && <p>Nenhum evento disponível no momento.</p>}
 
-      <ul>
+      <ul className="event-list">
         {events.map((event) => (
-          <li key={event.id}>
+          <li key={event.id} className="event-card">
             <Link to={`/events/${event.id}`}>
               <h3>{event.title}</h3>
             </Link>
-            <p>{new Date(event.eventDate).toLocaleString('pt-BR')}</p>
-            <p>{event.location}</p>
-            <p>Organizado por: {event.organizerName}</p>
+            <p className="event-meta">{new Date(event.eventDate).toLocaleString('pt-BR')}</p>
+            <p className="event-meta">{event.location}</p>
+            <p className="event-meta">Organizado por: {event.organizerName}</p>
           </li>
         ))}
       </ul>

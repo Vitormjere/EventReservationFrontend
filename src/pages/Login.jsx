@@ -29,10 +29,10 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className="page">
       <h1>Login</h1>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="message-error">{error}</p>}
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -57,7 +57,7 @@ function Login() {
           />
         </div>
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" className="btn-primary" disabled={loading}>
           {loading ? 'Entrando...' : 'Entrar'}
         </button>
       </form>
