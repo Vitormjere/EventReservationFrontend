@@ -1,16 +1,55 @@
-# React + Vite
+# EventReservation Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React frontend for the EventReservation API, browse events, reserve a spot, and manage your reservations, with role-based access for organizers and admins.
 
-Currently, two official plugins are available:
+## About the project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Built to consume the [EventReservation API](https://github.com/Vitormjere/EventReservation), focusing on JWT authentication in a SPA, protected routes based on user role, and a clean integration between frontend and backend.
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React · Vite · React Router · Context API (authentication state) · Plain CSS (custom dark theme) · Vercel (hosting)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User login and registration
+- JWT stored in localStorage, sent automatically on authenticated requests
+- Role-based UI and route protection (`Participant`, `Organizer`, `Admin`)
+- Event listing and detail pages
+- Event creation and editing (Organizer/Admin only, with ownership checks enforced by the API)
+- Event reservation and cancellation
+- "My Reservations" page
+
+## Running locally
+
+**Prerequisites:** Node.js, the [EventReservation API](https://github.com/Vitormjere/EventReservation) running locally or accessible remotely
+
+```bash
+git clone https://github.com/Vitormjere/EventReservationFrontend.git
+cd EventReservationFrontend
+npm install
+```
+
+Create a `.env.local` file in the project root:
+```
+VITE_API_URL=https://localhost:7185
+```
+
+Run the dev server:
+```bash
+npm run dev
+```
+
+## Live site
+
+`https://event-reservation-frontend.vercel.app`
+
+Backend API: `https://eventreservation-api-vitor-dugnc2fra6d3hne7.brazilsouth-01.azurewebsites.net`
+
+Default admin account (seeded automatically on the backend):
+- Email: `admin@eventreservation.com`
+- Password: `Admin@123`
+
+## Author
+
+Vitor Miranda Jeremias — [GitHub](https://github.com/Vitormjere)
