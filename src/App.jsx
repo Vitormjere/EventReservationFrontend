@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import EventList from './pages/EventList';
 import EventForm from './pages/EventForm';
 import MyReservations from './pages/MyReservations';
+import EventDetail from './pages/EventDetail';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<EventList />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/events/:id" element={<EventDetail />} />
         <Route
           path="/events/new"
           element={
