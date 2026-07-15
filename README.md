@@ -50,6 +50,11 @@ Default admin account (seeded automatically on the backend):
 - Email: `admin@eventreservation.com`
 - Password: `Admin@123`
 
+## Technical Documentation
+
+A complete technical write-up (architecture decisions, code walkthroughs, and real debugging challenges) is available here:
+[EventReservation_Documentacao.pdf](./docs/EventReservation_Documentacao.pdf)
+
 ## Author
 
 Vitor Miranda Jeremias — [GitHub](https://github.com/Vitormjere)
